@@ -1,0 +1,9 @@
+baseURL = 'https://example.org/'
+title = 'My New Hugo Site'
+languageCode = 'es-ES'
+defaultContentLanguage =  "es"
+
+[module]
+  [[module.mounts]]
+    source = "test_content"
+    target = "content"

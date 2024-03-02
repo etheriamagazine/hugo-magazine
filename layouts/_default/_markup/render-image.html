@@ -1,0 +1,30 @@
+{{/* 
+  If image is standalone, we render a figure & figcaption
+  If inside paragraph, we render a plain img tag.
+
+  See 'Phrasing content':
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content  
+
+*/}}
+{{- $src := .Destination  -}}
+{{- $src := replace $src "etheria_images/" "https://etheriamagazine.com/wp-content/uploads/" -}}
+{{ if .IsBlock }}
+  <figure>
+    <img 
+      src="{{ $src | safeURL }}"
+      alt="{{- .Text -}}"
+      loading="lazy"
+      decoding="async"
+    >
+    <figcaption>{{ .Title }}</figcaption>
+  </figure>
+
+{{ else }}
+  <img
+    src="{{ $src | safeURL }}" 
+    alt="{{- .Text -}}"
+    {{- with .Title }} title="{{ . }}"{{ end -}}
+    loading="lazy"
+    decoding="async"
+  >
+{{ end }}

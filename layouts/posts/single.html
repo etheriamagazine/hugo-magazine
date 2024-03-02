@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <article>
+    <div class="grid">
+      <h1 class="inter-font uppercase text-4xl font-bold text-azur-600">{{ .Title }}</h1>
+      {{ $dateMachine := .Date | time.Format "2006-01-02" }}
+      {{ $dateHuman := .Date | time.Format ":date_long" }}
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    </div>
+    <div class="grid grid-cols-12 gap-4 prose lg:prose-lg max-w-none md-article">
+      <div class="col-start-1 col-span-8">
+        {{ .Content }}
+      </div>
+      <div class="flex flex-col col-span-4">
+        <div class="bg-red-400 my-6">
+          anuncios
+
+        </div>
+        <div class="bg-slate-400 my-6">
+          anuncio 2
+
+        </div>        
+      </div>
+    </div>
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  </article>
+{{ end }}

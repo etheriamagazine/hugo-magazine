@@ -1,0 +1,17 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.rulers": [90],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 100,
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+
+  "evenBetterToml.formatter.indentTables": true,
+  "evenBetterToml.formatter.indentEntries": true,
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  }
+}
