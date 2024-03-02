@@ -1,9 +1,9 @@
 baseURL = 'https://example.org/'
-title = 'My New Hugo Site'
+title = 'Hugo Etheria theme'
 languageCode = 'es-ES'
 defaultContentLanguage =  "es"
 
-[module]
-  [[module.mounts]]
-    source = "test_content"
-    target = "content"
+# [module]
+#   [[module.mounts]]
+#     source = "test_content"
+#     target = "content"
