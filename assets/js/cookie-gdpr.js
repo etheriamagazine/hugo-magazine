@@ -1,4 +1,4 @@
-import { h, render, html, signal } from "./preact-bundle.js";
+import { h, render, html, signal } from "@jslibs/preact-bundle.js";
 
 export default function CookieBanner(prop) {
   return html`

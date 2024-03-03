@@ -8,7 +8,7 @@
 //     // runCookieConsent({});
 // });
 // import { h, html, signal, render} from './preact-bundle.js'
-import { h, render, html, signal } from  './preact-bundle.js';
+import { h, render, html, signal } from  '@jslibs/preact-bundle.js';
 
 import CookieBanner from './cookie-gdpr.js';
 
