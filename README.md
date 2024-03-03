@@ -10,12 +10,12 @@ Copyright
 
 Build:
 ```
-npm run build && hugo
+npm run build:css && hugo
 ```
 
 Build site
 ```
-npm run watch & hugo server ; fg
+npm run watch:css & hugo server ; fg
 ```
 
 

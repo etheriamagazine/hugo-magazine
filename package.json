@@ -24,8 +24,8 @@
   "license": "ISC",
   "name": "hugo-etheria",
   "scripts": {
-    "build": "./node_modules/tailwindcss/lib/cli.js -i ./assets/css/main.css -o ./assets/css/style.css",
-    "watch": "./node_modules/tailwindcss/lib/cli.js -i ./assets/css/main.css -o ./assets/css/style.css -w"
+    "build:css": "./node_modules/tailwindcss/lib/cli.js -i ./assets/css/main.css -o ./assets/css/style.css",
+    "watch:css": "./node_modules/tailwindcss/lib/cli.js -i ./assets/css/main.css -o ./assets/css/style.css -w"
   },
   "version": "1.0.0"
 }
