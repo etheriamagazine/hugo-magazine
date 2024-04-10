@@ -4,7 +4,8 @@
   "paths": {
    "*": [
     "*",
-    "../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle@v0.0.0-20240303185219-7bed176ccd00/dist/*"
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/etheriamagazine/hugo-mod-jslibs/alpinejs/v3@v3.0.0-20240308175352-914922e4cc40/packages/alpinejs/dist/*",
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle@v0.0.0-20240308175352-914922e4cc40/dist/*"
    ]
   }
  }

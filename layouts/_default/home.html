@@ -1,7 +1,24 @@
 {{ define "main" }}
   {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+  <swiper-container navigation="true" pagination="true">
+    {{ range first 5 site.RegularPages }}
+      <swiper-slide>
+        {{ .Render "hero" }}
+      </swiper-slide>
+    {{ end }}
+  </swiper-container>
+
+  <div class="columns-2 gap-8">
+    {{ range first 2 (after 5 site.RegularPages) }}
+      {{ .Render "summary" }}
+    {{ end }}
+  </div>
+  {{ range first 15 (after 7 site.RegularPages) }}
+    {{ .Render "summary" }}
   {{ end }}
+
 {{ end }}

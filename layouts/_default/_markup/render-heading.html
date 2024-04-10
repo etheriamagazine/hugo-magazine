@@ -1,0 +1,6 @@
+{{- if in (slice 2 3) .Level }}
+  {{- "<!--split-->" | safeHTML }}
+{{- end}}
+<h{{ .Level }} id="{{ .Anchor }}">
+  {{- .Text | safeHTML -}}
+</h{{ .Level }}>

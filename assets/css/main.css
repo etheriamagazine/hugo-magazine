@@ -1,39 +1,39 @@
-/* latin */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 200;
-  font-display: swap;
-  src: url("/fonts/Inter-VariableFont_slnt,wght.ttf") format("opentype");
-}
-
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/Inter-VariableFont_slnt,wght.ttf") format("opentype");
-}
+@import './fonts.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: "Lato", system-ui, sans-serif;
+  }
+  :root {
+    --swiper-navigation-color: #fff;
+    --swiper-pagination-color: #fff;    
+  }
+}
+
 @layer utilities {
-  .inter-font {
+  .font-inter {
     font-family: "Inter";
     font-weight: 200;
   }
+
+  .font-playfair {
+    font-family: 'Playfair';
+    font-weight: 400;
+  }
 }
 @layer utilities {
-  .md-article > p:nth-of-type(1) {
-    @apply text-red-600 text-xl lg:text-2xl;
+  .prose-intro > p:nth-of-type(1) {
+    @apply text-primary-600 text-xl lg:text-2xl;
   }
-  .md-article > p:nth-of-type(2)::first-line {
+  .prose-intro > p:nth-of-type(2)::first-line { 
     @apply uppercase text-justify;
   }
 
-  .md-article > p:nth-of-type(2)::first-letter {
+  .prose-intro > p:nth-of-type(2)::first-letter {
     @apply uppercase text-[5em] leading-[0.7] float-left ml-0 mr-4;
   }
 }

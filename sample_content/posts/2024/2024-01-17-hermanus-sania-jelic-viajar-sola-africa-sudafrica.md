@@ -3,13 +3,13 @@ title: "Hermanus, primera parada del viaje de Sania Jelic sola por África"
 date: "2024-01-17"
 coverImage: "etheria_images/2024/01/sania-sudafrica-hermanus-costa.jpg"
 categories: 
-  - "viajes-jubilados"
-  - "mujeres-etheria"
-  - "mujeres-que-inspiran"
-  - "viajes-para-mujeres"
-  - "viajar-sola"
+  - "Mujeres Etheria"
+  - "Mujeres Que inspiran"
+  - "Viajes para seniors"
+  - "Viajar sola"
 author: 
   - "Sania Jelic"
+  - "Susana García"
 ---
 
 Sania Jelic continua su aventura en el continente africano, demostrando así que las 

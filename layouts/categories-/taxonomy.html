@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <h1>Categorías2</h1>
+  <div>
+    <p>is noda: {{ .IsNode }}</p>
+  </div>
+  <ul>
+    {{ range .Pages.ByLinkTitle }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{ end }}
+  </ul>
+{{ end }}

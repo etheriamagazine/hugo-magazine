@@ -8,6 +8,12 @@ Copyright
 
 ## Building & serving site
 
+Starting server & watch with example content:
+```
+npm run dev
+```
+
+
 Build:
 ```
 npm run build:css && hugo

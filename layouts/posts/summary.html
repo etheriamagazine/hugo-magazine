@@ -1,0 +1,60 @@
+<article class="p-4 my-4 bg-white  shadow-md dark:bg-gray-800">
+  <a href="{{ .RelPermalink }}">
+    {{ with .Params.coverImage }}
+      <img
+        loading="lazy"
+        class="mb-5 w-full object-cover aspect-[3/2]"
+        src="{{ partial "image_cdn.html" . }}"
+
+        alt="office laptop working"
+      />
+    {{ end }}
+  </a>
+  {{ with .GetTerms "categories"}}
+    {{ range . }}
+      <a
+        href="{{ .RelPermalink }}"
+        class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900"
+        >{{ or .Params.name .Title }}</a
+      >
+    {{- end }}
+  {{ end }}
+
+
+  <h2
+    class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+  >
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  </h2>
+  <p class="mb-4 font-light text-gray-500 dark:text-gray-400">
+    {{ .Summary }}
+  </p>
+  <div class="flex items-center space-x-4">
+    {{ range .Params.author }}
+      {{ $author := . }}
+      {{ $path := printf "%s/%s" "authors" (urlize $author) }}
+      {{ with $.Site.GetPage $path }}
+        {{ $email := trim (.Params.email | lower) " " }}
+        {{ $gravatar := printf "https://gravatar.com/avatar/%s" (sha256 $email) }}
+
+
+        <img
+          loading="lazy"    
+          class="w-14 h-14 rounded-full"
+          src="{{ $gravatar }}"
+          alt="Jese Leos avatar"
+        />
+        <div class="font-medium dark:text-white">
+          <div>
+            {{ $author }}
+          </div>
+
+        </div>
+      {{ end }}
+    {{ end }}
+    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
+        {{ .Date | time.Format ":date_long" }} · Tiempo lectura:
+        {{ printf "%d min" .ReadingTime }}
+      </div>    
+  </div>
+</article>

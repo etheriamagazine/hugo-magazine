@@ -1,13 +1,29 @@
-baseURL = 'https://example.org/'
-title = 'Hugo Etheria theme'
+baseURL = 'https://etheriamagazine.com/'
+title = 'Hugo Etheria Theme'
 languageCode = 'es-ES'
-defaultContentLanguage =  "es"
+defaultContentLanguage = "es"
+summaryLength = 20
+
+
+
+[permalinks]
+
+    [permalinks.taxonomy]
+        categories = "/categorias"
+
+    [permalinks.term]
+        categories = "/categorias/:slug"        
 
 # [module]
 #   [[module.mounts]]
 #     source = "test_content"
 #     target = "content"
+[minify]
+    minifyOutput = true
 
 [module]
     [[module.imports]]
         path = 'github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle'
+
+    [[module.imports]]
+        path = 'github.com/etheriamagazine/hugo-mod-jslibs/alpinejs/v3'

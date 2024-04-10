@@ -1,0 +1,25 @@
+<article class="relative">
+  <a href="{{ .RelPermalink }}">
+    {{ with .Params.coverImage }}
+      <img
+        loading="lazy"
+        class="w-full object-cover aspect-[3/2]"
+        src="{{ partial "image_cdn.html" . }}"
+        alt="office laptop working"
+      />
+    {{ end }}
+  </a>
+  <div class="absolute inset-0 bg-gray-700 opacity-20 rounded-md"></div>
+  <div class="absolute inset-0 flex flex-col items-center justify-center">
+      <h2 class="my-2 text-2xl font-semibold text-shadow text-white text-center w-3/5 max-w-[30ch]">
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      </h2>
+
+      <a
+        type="button"
+        class="text-white font-bold bg-primary-600 hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300  rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Leer más
+    </a>
+  </div>
+</article>

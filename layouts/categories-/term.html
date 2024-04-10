@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <h2>{{ or .Params.name .Title }}</h2>
+  {{ with .Params.description }}
+    <p>{{ . }}</p>
+  {{ end }}
+  {{ with .Content}} 
+  <div class="prose">
+    {{ .}}
+  </div>
+  {{ end}}
+{{ end }}

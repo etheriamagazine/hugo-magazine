@@ -1,0 +1,12 @@
+# Hugo dev overrides
+# Usage:
+#   hugo server --config hugo.toml,hugo.dev.toml
+
+[minify]
+    minifyOutput = false
+
+# mount sample content
+[module]
+  [[module.mounts]]
+    source = "sample_content"
+    target = "content"

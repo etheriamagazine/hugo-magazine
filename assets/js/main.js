@@ -10,7 +10,11 @@
 // import { h, html, signal, render} from './preact-bundle.js'
 import { h, render, html, signal } from  '@jslibs/preact-bundle.js';
 
-import CookieBanner from './cookie-gdpr.js';
+import CookieBanner from './cookie-gdpr.js'
+
+import Alpine from '@jslibs/alpinejs.js'
+
+Alpine.start();
 
 // Initialize htm with Preact
 // const html = htm.bind(h);

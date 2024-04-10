@@ -1,0 +1,7 @@
+{{- $collection := . }}
+{{- $size := 3 }}
+{{- $s := newScratch }}
+{{- range $i, $v := $collection }}
+    {{- $s.Add (div $i $size | string) (slice $v) }}
+{{- end }}
+{{- return $s.Values }}

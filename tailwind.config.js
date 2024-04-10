@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: [
     "content/**/*.md",
@@ -11,9 +13,27 @@ module.exports = {
         azur: azur_colors(),
         primary: azur_colors(),
       },
+      textShadow: {
+        sm: '0 1px 2px #000',
+        DEFAULT: '0 2px 4px #000',
+        lg: '0 8px 16px #000',
+      },      
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("flowbite/plugin")],
+  plugins: [
+    require("@tailwindcss/typography"), 
+    require("flowbite/plugin"),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),    
+  ],
 };
 
 

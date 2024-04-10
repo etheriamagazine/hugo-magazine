@@ -1,26 +1,44 @@
 {{ define "main" }}
   <article>
     <div class="grid">
-      <h1 class="inter-font uppercase text-4xl font-bold text-azur-600">{{ .Title }}</h1>
+      <h1 class="font-playfair  text-4xl font-bold text-azur-600">
+        {{ .Title }}
+      </h1>
       {{ $dateMachine := .Date | time.Format "2006-01-02" }}
       {{ $dateHuman := .Date | time.Format ":date_long" }}
       <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
     </div>
-    <div class="grid grid-cols-12 gap-4 prose lg:prose-lg max-w-none md-article">
-      <div class="col-start-1 col-span-8">
-        {{ .Content }}
-      </div>
-      <div class="flex flex-col col-span-4">
-        <div class="bg-red-400 my-6">
-          anuncios
-
-        </div>
-        <div class="bg-slate-400 my-6">
-          anuncio 2
-
-        </div>        
-      </div>
+    <div class="">
+      {{ with .GetTerms "categories" }}
+        {{ range . }}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{ end }}
+      {{ end }}
     </div>
+    {{ $parts := split .Content "<!--split-->" }}
+    {{ $chunks := partial "partials/chunk_every" $parts }}
+    {{ range $index, $p := $parts }}
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 ">
+        <div
+          class="prose lg:prose-lg prose-img:w-full prose-img:aspect-[16/10] prose-img:object-cover prose-img:bo max-w-none
+          {{ if eq $index 0 }}prose-intro{{ end -}}
+          ">
+          {{ $p | safeHTML }}
+          <p class="hidden"></p>
+        </div>
+        <div class="flex flex-col hidden lg:block">
+          <div
+            id="{{ now.UnixNano }}"
+            class="sticky top-0 p-4 border rounded-sm border-gray-300 "
+          >
+            {{ with $.GetPage "publi/2023-polonia" }}
+              {{ .Content }}
+            {{ end }}
+
+          </div>
+        </div>
+      </div>
+    {{ end }}
     {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
   </article>
 {{ end }}
