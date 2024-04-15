@@ -1,0 +1,9 @@
+{{ $path := . }}
+{{ $key := getenv "HUGO_IMGPROXY_KEY" }}
+{{ $salt := getenv "HUGO_IMGPROXY_SALT" }}
+{{ $key := "secret" }}
+{{ $salt := "hello" }}
+{{ $path := "/rs:fill:300:400:0/g:sm/aHR0cDovL2V4YW1w/bGUuY29tL2ltYWdl/cy9jdXJpb3NpdHku/anBn.png"}}
+{{ $msg := printf "%s%s" $salt $path }}
+{{ $signature := hmac "sha256" $key $msg "binary" | base64Encode }}
+{{ return trim $signature "="  }}

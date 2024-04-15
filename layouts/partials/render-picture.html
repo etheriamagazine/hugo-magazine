@@ -1,0 +1,22 @@
+{{- $src := . -}}
+{{- $src := replace $src "etheria_images/" "https://etheriamagazine.com/wp-content/uploads/" -}}
+
+{{- $imgproxy_url := partial "imgproxy/request_url" (dict "source_image" $src "processing_options" "/rs:fit:800/" "extension" "") -}}
+{{- $variants := split "200 300 600 900 1200" " " -}}
+{{- $sizes := "100vw" -}}
+<picture>
+  <img
+    srcset="
+      {{- with $variants -}}
+        {{- range $i, $e := . -}}
+          {{ $opts := printf "/rs:fit:%s/" $e }}
+          {{- if $i }},{{ end }}
+          {{ partial "imgproxy/request_url" (dict "source_image" $src "processing_options" $opts) }} {{ $e -}}w
+        {{- end -}}
+      {{- end -}}
+    "
+    sizes="{{ $sizes }}"
+    src="{{ $imgproxy_url }}"
+    alt="test image"
+  />
+</picture>
