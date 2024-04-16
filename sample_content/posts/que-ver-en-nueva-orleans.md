@@ -1,6 +1,6 @@
 ---
-title: "{{ replace .File.ContentBaseName "-" " " | title }}"
-date: {{ .Date }}
+title: "Que Ver en Nueva Orleans"
+date: 2024-04-17T00:24:20+02:00
 draft: true
 coverImage: etheria_images/2024/03/lago-garda-italia.jpg
 categories: 
