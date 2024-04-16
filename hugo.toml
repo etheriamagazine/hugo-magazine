@@ -4,8 +4,6 @@ languageCode = 'es-ES'
 defaultContentLanguage = "es"
 summaryLength = 20
 
-
-
 [permalinks]
 
     [permalinks.taxonomy]
@@ -14,10 +12,6 @@ summaryLength = 20
     [permalinks.term]
         categories = "/categorias/:slug"        
 
-# [module]
-#   [[module.mounts]]
-#     source = "test_content"
-#     target = "content"
 [minify]
     minifyOutput = true
 
