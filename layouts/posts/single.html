@@ -1,7 +1,7 @@
 {{ define "main" }}
   <article>
     <div class="grid">
-      <h1 class="font-playfair  text-4xl font-bold text-azur-600">
+      <h1 class="font-playfair my-6 text-4xl font-bold text-azur-600">
         {{ .Title }}
       </h1>
       {{ $dateMachine := .Date | time.Format "2006-01-02" }}
@@ -15,9 +15,13 @@
         {{ end }}
       {{ end }}
     </div>
+    {{ $ads := .Site.Params.publi.items }}
+
     {{ $parts := split .Content "<!--split-->" }}
     {{ $chunks := partial "partials/chunk_every" $parts }}
     {{ range $index, $p := $parts }}
+      {{ $ai := mod $index (len $ads) }}
+      {{ $currAd := index $ads $ai }}
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 ">
         <div
           class="prose lg:prose-lg prose-img:w-full prose-img:aspect-[16/10] prose-img:object-cover prose-img:bo max-w-none
@@ -31,7 +35,7 @@
             id="{{ now.UnixNano }}"
             class="sticky top-0 p-4 border rounded-sm border-gray-300 "
           >
-            {{ with $.GetPage "publi/2023-polonia" }}
+            {{ with $.GetPage $currAd }}
               {{ .Content }}
             {{ end }}
 

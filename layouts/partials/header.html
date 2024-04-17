@@ -1,7 +1,7 @@
 
 
   <nav
-  class="mx-auto flex h-20 max-w-7xl items-center px-4 sm:px-6 lg:px-8"
+  class="mx-auto flex h-20 max-w-7xl items-center "
 >
   <!-- Main navbar for large screens -->
   <div class="flex w-full items-center justify-between">
@@ -19,47 +19,22 @@
     <div
       class="ml-6 hidden items-center justify-between text-xl md:flex md:space-x-0.5 md:text-base lg:space-x-2"
     >
-      <!-- Current: "text-red-700", Default: "text-gray-800 hover:text-red-700 transition duration-300 ease-in-out" -->
-      <a
-        href="category.html"
-        class="px-3 py-1 text-md font-medium text-gray-800 transition duration-300 ease-in-out hover:text-red-700"
-      >
-        Technology
-      </a>
-      <a
-        href="category.html"
-        class="px-3 py-1 text-md font-medium text-gray-800 transition duration-300 ease-in-out hover:text-red-700"
-      >
-        Startup
-      </a>
-      <a
-        href="category.html"
-        class="px-3 py-1 text-md font-medium text-gray-800 transition duration-300 ease-in-out hover:text-red-700"
-      >
-        Design
-      </a>
-      <a
-        href="category.html"
-        class="px-3 py-1 text-md font-medium text-gray-800 transition duration-300 ease-in-out hover:text-red-700"
-      >
-        Innovation
-      </a>
 
       <!-- Template pages dropdown container -->
       <div class="relative" x-data="{ open: false }">
         <!-- Pages dropdown button -->
         <button
           type="button"
-          class="group flex items-center px-3 py-1 text-md font-medium text-gray-800 transition duration-300 ease-in-out hover:text-red-700"
+          class="group flex items-center px-3 py-1 text-sm uppercase font-semibold text-azur-600 transition duration-300 ease-in-out hover:text-azur-700"
           @click="open = true"
         >
-          <span :class="{'text-red-700': open}">Pages</span>
+          <span :class="{'text-azur-700': open}">Viaja como eres</span>
 
           <!-- Heroicon name: solid/chevron-down -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="ml-2 h-5 w-5 transform text-gray-600 duration-300 group-hover:text-red-700"
-            :class="{'rotate-180 text-red-700': open}"
+            class="ml-2 h-5 w-5 transform text-gray-600 duration-300 group-hover:text-azur-700"
+            :class="{'rotate-180 text-azur-700': open}"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -80,64 +55,85 @@
         >
           <a
             href="index.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             Home
           </a>
           <a
             href="category.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             Category page
           </a>
           <a
             href="post.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             Post
           </a>
           <a
             href="author.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             Author page
           </a>
           <a
             href="tag.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             Tag page
           </a>
           <a
             href="about.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             About us
           </a>
           <a
             href="contact.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             Contact us
           </a>
           <a
             href="privacy-policy.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             Privacy policy
           </a>
           <a
             href="404.html"
-            class="block rounded-lg px-5 py-3.5 font-medium text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-red-700"
+            class="block rounded-lg px-5 py-3.5 font-semibold text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 hover:text-azur-700"
           >
             404 page
           </a>
         </div>
       </div>
+
+
+      <a
+        href="category.html"
+        class="px-3 py-1 text-sm uppercase font-semibold text-azur-600 transition duration-300 ease-in-out hover:text-azur-700"
+      >
+        Dolce far niente
+      </a>
+      <a
+        href="category.html"
+        class="px-3 py-1 text-sm uppercase font-semibold text-azur-600 transition duration-300 ease-in-out hover:text-azur-700"
+      >
+        Planes y cultura
+      </a>
+      <a
+        href="category.html"
+        class="px-3 py-1 text-sm uppercase font-semibold text-azur-600 transition duration-300 ease-in-out hover:text-azur-700"
+      >
+        Bienestar
+      </a>
+
     </div>
 
     <!-- Search -->
-    <div class="relative ml-6 h-10 w-full max-w-xxs rounded-3xl">
+    <div class="relative ml-6 h-10 w-64 rounded-3xl">
       <form class="group rounded-3xl transition duration-300 ease-in-out">
         <div class="absolute inset-y-0 left-3 flex items-center">
           <!-- Heroicon name: solid/search -->
@@ -157,7 +153,7 @@
 
         <input
           type="text"
-          class="h-10 w-full rounded-3xl border border-gray-200 bg-white px-10 py-3 text-sm leading-5 text-gray-800 transition duration-300 ease-in-out hover:bg-gray-50 focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-100"
+          class="h-10 w-full rounded-3xl border border-gray-200 bg-white px-10 py-3 text-sm leading-5 text-azur-600 transition duration-300 ease-in-out hover:bg-gray-50 focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-100"
           required
           placeholder="Search..."
         />

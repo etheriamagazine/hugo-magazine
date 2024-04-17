@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         azur: azur_colors(),
+        blue: azur_colors(),
         primary: azur_colors(),
       },
       textShadow: {
