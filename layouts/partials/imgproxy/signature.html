@@ -2,6 +2,6 @@
 {{ $key := getenv "HUGO_IMGPROXY_KEY" }}
 {{ $salt := getenv "HUGO_IMGPROXY_SALT" }}
 {{ $msg := printf "%s%s" $salt $path }}
-{{ $signature := partial "functions/base64url/encode" (hmac "sha256" $key $msg "binary")  }}
+{{ $signature := partial "base64url/encode" (hmac "sha256" $key $msg "binary")  }}
 {{ return $signature  }}
 

@@ -1,0 +1,10 @@
+{{ $s := newScratch }}
+{{ $s.Set "@type" "Organization" }}
+{{ $s.Set "name" site.Params.publisher.name }}
+{{ $s.Set "url" site.BaseURL }}
+
+{{ $image := resources.Get "images/logo.svg" }}
+{{ $s.Set "image" $image.Permalink }}
+
+{{ $s.Set "sameAs" site.Params.publisher.urls }}
+{{ return $s.Values }}

@@ -1,0 +1,20 @@
+{{ $s := newScratch }}
+{{ $s.Set "@type" "Person" }}
+{{ $s.Set "name" .Title }}
+{{ $s.Set "description" .Params.bio }}
+{{ $s.Set "image" (partial "gravatar/url" .Params.email) }}
+
+{{ with .Params.jobTitle }}
+    {{ $s.Set "jobTitle" . }}
+{{ end}}
+{{ with .Params.knowsAbout }}
+    {{ $s.Set "knowsAbout" . }}
+{{ end}}
+{{ with .Params.urls }}
+    {{ $s.Set "sameAs" slice}}
+    {{ range . }}
+        {{ $s.Add "sameAs" . }}
+    {{ end }}
+{{ end}}
+
+{{ return $s.Values }}

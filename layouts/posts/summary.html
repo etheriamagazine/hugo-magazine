@@ -30,13 +30,10 @@
     {{ .Summary }}
   </p>
   <div class="flex items-center space-x-4">
-    {{ range .Params.author }}
-      {{ $author := . }}
-      {{ $path := printf "%s/%s" "authors" (urlize $author) }}
-      {{ with $.Site.GetPage $path }}
+    {{ range .GetTerms "authors" }}
+        {{ $author := .Params.name }}
         {{ $email := trim (.Params.email | lower) " " }}
         {{ $gravatar := printf "https://gravatar.com/avatar/%s" (sha256 $email) }}
-
 
         <img
           loading="lazy"    
@@ -45,12 +42,11 @@
           alt="Jese Leos avatar"
         />
         <div class="font-medium dark:text-white">
-          <div>
-            {{ $author }}
-          </div>
+          <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
 
         </div>
-      {{ end }}
     {{ end }}
     <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
         {{ .Date | time.Format ":date_long" }} · Tiempo lectura:

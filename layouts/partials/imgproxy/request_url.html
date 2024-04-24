@@ -1,6 +1,6 @@
-{{- $host := "https://images.deploy2web.com/" -}}
+{{- $host := "https://imgx.deploy2web.com/" -}}
 {{- $o := merge (dict "extension" ".avif" "processing_options" "//" ) . -}}
-{{- $encoded_source := partial "functions/base64url/encode" $o.source_image -}}
+{{- $encoded_source := partial "base64url/encode" $o.source_image -}}
 {{- $path := printf "%s%s%s" $o.processing_options $encoded_source $o.extension -}}
 {{- $signature := partial "imgproxy/signature" $path -}}
 {{- return (printf "%s%s%s" $host $signature $path) -}}d

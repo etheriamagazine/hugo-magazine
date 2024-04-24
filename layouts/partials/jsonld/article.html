@@ -1,0 +1,17 @@
+{{ $s := newScratch }}
+{{ $s.Set "@type" "Article" }}
+{{ $s.Set "headline" .Title }}
+{{ $s.Set "image" .Params.coverImage }}
+{{ $s.Set "datePublished" (time.AsTime .PublishDate) }}
+{{ $s.Set "publisher" (partial "jsonld/publisher") }}
+{{ $s.Set "inLanguage" site.Language.Lang  }}
+{{ $s.Set "wordCount" .WordCount  }}
+
+{{ with .GetTerms "authors"}}
+    {{ $s.Set "authors" slice }}
+    {{ range .}}
+        {{ $s.Add "authors" (partial "jsonld/author" .) }}
+    {{ end}}
+{{ end }}
+
+{{ return $s.Values }}

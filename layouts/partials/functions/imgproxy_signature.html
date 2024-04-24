@@ -5,6 +5,6 @@
 {{ $salt := "hello" }}
 {{ $path := "/rs:fill:300:400:0/g:sm/aHR0cDovL2V4YW1w/bGUuY29tL2ltYWdl/cy9jdXJpb3NpdHku/anBn.png"}}
 {{ $msg := printf "%s%s" $salt $path }}
-{{ $signature := partial "functions/base64url/encode" (hmac "sha256" $key $msg "binary")  }}
+{{ $signature := partial "base64url/encode" (hmac "sha256" $key $msg "binary")  }}
 {{ return $signature  }}
 

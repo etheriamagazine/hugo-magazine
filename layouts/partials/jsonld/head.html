@@ -1,0 +1,10 @@
+{{ $data := dict 
+    "@context" "http://schema.org"
+}}
+
+{{ if .IsHome }}
+    {{ partial "jsonld/script" (merge $data (partial "jsonld/website" . )) }}
+{{ else if .IsPage }}
+    {{ partial "jsonld/script" (merge $data (partial "jsonld/article" . )) }}
+{{ end }}
+

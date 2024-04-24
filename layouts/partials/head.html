@@ -1,11 +1,12 @@
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
   {{ if .IsHome }}
-    {{ site.Title }}
+    {{- site.Title }}
   {{ else }}
-    {{ printf "%s | %s" .Title site.Title }}
-  {{ end }}
+    {{- printf "%s | %s" .Title site.Title -}}
+  {{- end }}
 </title>
 {{/* preload resources */}}
 <link
@@ -31,6 +32,7 @@
 />
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+{{ partial "jsonld/head" . }}
 
 {{/* low priority links */}}
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

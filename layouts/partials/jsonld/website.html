@@ -1,0 +1,8 @@
+{{ $s := newScratch }}
+{{ $s.Set "@type" "WebSite" }}
+{{ $s.Set "name" site.Title }}
+{{ $s.Set "url" site.BaseURL  }}
+{{ $s.Set "description" site.Params.subtitle }}
+{{ $s.Set "inLanguage" site.Language.Lang  }}
+{{ $s.Set "publisher" (partial "jsonld/publisher") }}
+{{ return $s.Values }}
