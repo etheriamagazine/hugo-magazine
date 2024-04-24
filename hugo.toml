@@ -10,7 +10,7 @@ summaryLength = 20
         categories = "/categorias"
 
     [permalinks.term]
-        categories = "/categorias/:slug"        
+        categories = "/categorias/:slug"
 
 [minify]
     minifyOutput = true
@@ -21,3 +21,38 @@ summaryLength = 20
 
     [[module.imports]]
         path = 'github.com/etheriamagazine/hugo-mod-jslibs/alpinejs/v3'
+
+
+    # Cloudflare Pages functions 
+    [[module.mounts]]
+        source = 'functions'
+        target = 'functions'
+
+    # Standard Hugo mounts used
+    [[module.mounts]]
+        source = 'archetypes'
+        target = 'archetypes'
+
+    [[module.mounts]]
+        source = 'assets'
+        target = 'assets'
+
+    [[module.mounts]]
+        source = 'layouts'
+        target = 'layouts'
+
+    [[module.mounts]]
+        source = 'static'
+        target = 'static'
+
+    # [[module.mounts]]
+    #     source = 'content'
+    #     target = 'content'
+
+    # [[module.mounts]]
+    #     source = 'data'
+    #     target = 'data'
+
+    # [[module.mounts]]
+    #     source = 'i18n'
+    #     target = 'i18n'
