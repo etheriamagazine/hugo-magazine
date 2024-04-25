@@ -13,6 +13,10 @@
     {{ end }}
   </swiper-container>
 
+
+
+  {{ partial "subscribe/form" }}
+
   <div class="columns-2 gap-8">
     {{ range first 2 (after 5 site.RegularPages) }}
       {{ .Render "summary" }}
@@ -23,3 +27,5 @@
   {{ end }}
 
 {{ end }}
+
+

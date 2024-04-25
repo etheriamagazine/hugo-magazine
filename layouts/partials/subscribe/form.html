@@ -1,0 +1,49 @@
+{{ $params :=  site.Params.hugoEtheria.subscribeForm }}
+
+<form x-data="subscribeForm({{ $params | jsonify }})" @submit.prevent="submit">
+  <label>
+    <span>Email</span>
+    <textarea name="email" x-model="data.email"></textarea>
+  </label>
+  <label>
+    <span>Message</span>
+    <textarea name="message" x-model="data.message"></textarea>
+  </label>
+  <button type="submit" x-text="buttonText" :disabled="loading">Submit</button>
+</form>
+
+<script type="text/javascript">
+  function subscribeForm({action}) {
+    console.log(`the actino: ${action}`);
+    return {
+      data: {
+        email: "",
+        message: "",
+      },
+      buttonText: "Submit",
+      loading: false,
+      async submit() {
+        this.buttonText = "Enviando formulario...";
+        this.loading = true;
+        const response = await fetch(action, {
+          method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          body: JSON.stringify(this.data),
+        }).finally(() => {
+          this.data.message = "";
+          this.buttonText = "Submit";
+          this.loading = false;
+        });
+
+        if (response.ok) {
+          this.buttonText = "Enviado";
+        } else {
+          this.buttonText = "Erroria en el envio";
+        }
+      },
+    };
+  }
+</script>
