@@ -1,47 +1,196 @@
 {{ $params :=  site.Params.hugoEtheria.subscribeForm }}
 
-<form x-data="subscribeForm({{ $params | jsonify }})" @submit.prevent="submit">
-  <label>
-    <span>Email</span>
-    <textarea name="email" x-model="data.email"></textarea>
-  </label>
-  <label>
-    <span>Message</span>
-    <textarea name="message" x-model="data.message"></textarea>
-  </label>
-  <button type="submit" x-text="buttonText" :disabled="loading">Submit</button>
-</form>
+
+<section x-data="subscribeForm({{ $params | jsonify }})" class="overflow-hidden">
+
+  <div class="flex transition" :style="`transform: translateX(-${(page - 1) * 100}%)`">
+    <!-- form panel -->
+    <div class="flex-none basis-full">
+      <div class="bg-white dark:bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+          <div class="mx-auto max-w-screen-md sm:text-center">
+            <h2
+              class="mb-4 text-3xl tracking-tight font-semibold text-gray-900 sm:text-4xl dark:text-white"
+            >
+              Suscríbete a <span class="uppercase">Etheria Magazine</span>
+            </h2>
+            <p
+              class="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400"
+            >
+              Si te apasiona viajar, inscríbete con tu email y recibirás los últimos
+              artículos de la revista, además de participar en sorteos y obtener
+              descuentos. Tratamos tus datos con la máxima privacidad.
+            </p>
+            <form  @submit.prevent="submit">
+              <div
+                class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0"
+              >
+                <div class="relative w-full flex-1">
+                  <label
+                    for="email_address"
+                    class="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >Correo electrónico</label
+                  >
+                  <div
+                    class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+                  >
+                    <svg
+                      class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                      ></path>
+                      <path
+                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    class="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Introduce tu  correo electrónico"
+                    type="email"
+                    id="email_address"
+                    required=""
+                    x-model="data.email_address"
+                  />
+                </div>
+                <div class="flex-none">
+                  <button
+                    type="submit"
+                    class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    x-text="buttonText" :disabled="loading"
+                    >
+                    Suscribirme
+                  </button>
+                </div>
+              </div>
+              <div
+                class="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300"
+              >
+                Nos tomamos muy en serio tus datos.
+                <a
+                  href="/pages/politica-de-privacidad"
+                  class="font-medium text-primary-600 dark:text-primary-500 hover:underline"
+                  >Lee nuestra política de privacidad</a
+                >.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>    
+    </div> 
+    <!-- result panel -->
+    <div class="flex-none basis-full">
+      <div class="bg-white rounded-lg p-10 flex items-center justify-center">
+        <div>
+          <div x-show="formState === 'success'">
+            <svg class="mb-4 h-20 w-20 text-green-500 mx-auto" viewBox="0 0 20 20" fill="currentColor">  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        
+            <h2 class="text-2xl mb-4 text-gray-800 text-center font-bold">Registration Success</h2>
+        
+            <div class="text-gray-600 mb-8">
+              Thank you. We have sent you an email to demo@demo.test. Please click the link in the message to activate your account.
+            </div>
+          </div>
+          <div x-show="formState === 'error'">
+            <svg class="mb-4 h-20 w-20 text-red-500 mx-auto" viewBox="0 0 20 20" fill="currentColor">  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        
+            <h2 class="text-2xl mb-4 text-gray-800 text-center font-bold">Error</h2>
+        
+            <div class="text-gray-600 mb-8">
+              No hemos podido darte de alta en el Newsletter.
+            </div>
+          </div>          
+          <button
+            @click="reset"
+            class="w-40 block mx-auto focus:outline-none py-2 px-5 rounded-lg shadow-sm text-center text-gray-600 bg-white hover:bg-gray-100 font-medium border" 
+          >Back to home2</button>
+        </div>
+      </div>
+    </div>  
+  </div>
+</section>
+
 
 <script type="text/javascript">
-  function subscribeForm({action}) {
-    console.log(`the actino: ${action}`);
+  function subscribeForm({ action }) {
+
+    async function postForm(data) {
+      const response = await fetch(action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if(!response.ok) {
+        throw new Error("Response error");
+      }
+
+      return await response.json();
+    } 
+
     return {
-      data: {
-        email: "",
-        message: "",
+      formState: "",
+      data: {},
+      buttonText: "",
+      loading: false,    
+      response: null,  
+
+      init() {
+        this.reset();
       },
-      buttonText: "Submit",
-      loading: false,
+
+      reset() {
+        this.formState = "initial";
+        this.data = {
+          email_address: "germancito@germancito.com",
+          accepts_privacy_policy: true
+        };
+        this.buttonText = "Suscribirme",
+        this.response = null;
+        this.loading = false;
+      },      
+
+      get page() {
+        switch(this.formState) {
+          case "initial":
+            return 1
+          case "submitted":
+          case "error":
+            return 2;
+          default:
+            return 2;
+        }
+      },
+
+
       async submit() {
-        this.buttonText = "Enviando formulario...";
+        this.buttonText = "Enviando formulario";
         this.loading = true;
-        const response = await fetch(action, {
-          method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-          body: JSON.stringify(this.data),
-        }).finally(() => {
-          this.data.message = "";
-          this.buttonText = "Submit";
-          this.loading = false;
+
+        const minDelay = new Promise((resolve, reject) => {
+          setTimeout(resolve, 800, "timeout");
         });
 
-        if (response.ok) {
-          this.buttonText = "Enviado";
-        } else {
-          this.buttonText = "Erroria en el envio";
+        try
+        {
+          
+          const [response] = await Promise.all([postForm(this.data), minDelay]);
+          this.response = response;
+          this.formState = "success";
+        } catch(err) {
+          console.log(err)
+          console.log('hola')
+
+          this.formState = "error";
+          
+        } finally {
         }
       },
     };
