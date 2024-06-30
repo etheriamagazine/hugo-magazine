@@ -1,18 +1,24 @@
 {{- $src := . -}}
-{{- $src := replace $src "etheria_images/" "https://etheriamagazine.com/wp-content/uploads/" -}}
-
-{{- $imgproxy_url := partial "imgproxy/request_url" (dict "source_image" $src "processing_options" "/rs:fit:800/" "extension" "") -}}
-{{- $variants := split "200 300 600 900 1200" " " -}}
+{{/* {{- $src := replace $src "etheria_images/" "https://etheriamagazine.com/wp-content/uploads/" -}}
+*/}}
+{{/* {{- $src := replace $src "etheria_images/" "s3://etheria-images/" -}}
+*/}}
+{{- $imgproxy_url := partial "imgproxy/request_url" (dict "src" $src "process_options" "rs:fit:800" "extension" ".avif") -}}
+{{- $variants := slice 200 300 600 900 1250 -}}
 {{- $sizes := "100vw" -}}
-<picture>
+
+
+<pre>
+  {{ debug.Dump (partial "imgproxy/srcset" $src) }}
+</pre>
+<picture aaa="{{ partial "srcset" $src }}">
   <img
     srcset="
-      {{- with $variants -}}
-        {{- range $i, $e := . -}}
-          {{ $opts := printf "/rs:fit:%s/" $e }}
-          {{- if $i }},{{ end }}
-          {{ partial "imgproxy/request_url" (dict "source_image" $src "processing_options" $opts) }} {{ $e -}}w
-        {{- end -}}
+      {{- range $i, $size := $variants -}}
+        {{- $opts := printf "rs:fit:%s" (string $size) -}}
+        {{- if $i }},{{ end }}
+        {{ partial "imgproxy/request_url" (dict "src" $src "process_options" $opts "extension" ".avif") }} 
+        {{- printf " %sw" (string $size) }}
       {{- end -}}
     "
     sizes="{{ $sizes }}"

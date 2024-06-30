@@ -1,6 +1,20 @@
-{{- $host := "https://imgx.deploy2web.com/" -}}
-{{- $o := merge (dict "extension" ".avif" "processing_options" "//" ) . -}}
-{{- $encoded_source := partial "base64url/encode" $o.source_image -}}
-{{- $path := printf "%s%s%s" $o.processing_options $encoded_source $o.extension -}}
-{{- $signature := partial "imgproxy/signature" $path -}}
-{{- return (printf "%s%s%s" $host $signature $path) -}}d
+{{/*  {{- $host := "https://etheria-imgproxy.fly.dev/" -}}  */}}
+{{- $conf := site.Params.imgproxy  -}}
+{{- $o := merge (dict "extension" "avif" "process_options" "" ) . -}}
+{{- $src := $o.src -}}
+{{- $ext := $o.extension | strings.TrimPrefix "." -}}
+{{- $process_options :=  trim $o.process_options "/" -}}
+{{- $host := $conf.host | strings.TrimSuffix "/" -}}
+{{- $path := "" -}}
+{{- $signature := "" -}}
+
+{{- if eq $conf.sourceStyle "encoded" -}}
+    {{- $encoded_src := partial "base64url/encode" $src -}}
+    {{- $path = printf "/%s/%s.%s" $process_options $encoded_src $ext -}}
+    {{- $signature = partial "imgproxy/signature" $path -}}
+{{- else -}}
+    {{- $path = printf "/%s/plain/%s@%s" $process_options $src $ext -}}
+    {{- $signature = partial "imgproxy/signature" $path -}}
+{{- end -}}
+
+{{- return (printf "%s/%s%s" $host $signature $path) -}}

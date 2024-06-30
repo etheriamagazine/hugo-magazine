@@ -1,9 +1,8 @@
 {{ define "main" }}
   <article>
     <div class="grid">
-    <h1>superhola23</h1>
 
-        <h1 class="font-playfair my-6 text-4xl font-bold text-azur-600">
+      <h1 class="font-playfair my-6 text-4xl font-bold text-azur-600">
         {{ .Title }}
       </h1>
       {{ $dateMachine := .Date | time.Format "2006-01-02" }}
@@ -24,11 +23,12 @@
     {{ range $index, $p := $parts }}
       {{ $ai := mod $index (len $ads) }}
       {{ $currAd := index $ads $ai }}
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 ">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
         <div
           class="prose lg:prose-lg prose-img:w-full prose-img:aspect-[16/10] prose-img:object-cover prose-img:bo max-w-none
-          {{ if eq $index 0 }}prose-intro{{ end -}}
-          ">
+          {{- if eq $index 0 }}prose-intro{{ end -}}
+          "
+          >
           {{ $p | safeHTML }}
           <p class="hidden"></p>
         </div>

@@ -1,0 +1,10 @@
+{{- $src := . -}}
+{{- $sizes := slice 200 300 600 900 1200 -}}
+{{- $srcset := newScratch -}}
+{{- range $i, $w := $sizes -}}
+    {{- $process_options := printf "/rs:fit:%s/" (string $w) -}}
+    {{- $url := partial "imgproxy/request_url" (dict "src" $src "process_options" $process_options "extension" "avif") -}}
+    {{- $srcset.Set (printf "%sw" (string $w)) $url -}}
+{{- end -}}
+
+{{ return $srcset.Values }}

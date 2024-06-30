@@ -1,30 +1,40 @@
-{{/* 
-  If image is standalone, we render a figure & figcaption
+{{/* If image is standalone, we render a figure & figcaption
   If inside paragraph, we render a plain img tag.
 
   See 'Phrasing content':
-    https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content  
-
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content
 */}}
-{{- $src := .Destination  -}}
-{{- $src := replace $src "etheria-images/" "https://etheriamagazine.com/wp-content/uploads/" -}}
+{{- $src := .Destination -}}
+{{- $srcset := false -}}
+
+{{- if site.Params.imgproxy.enabled }}
+  {{- $optimized := partial "imgproxy/srcset" $src -}}
+  {{- $src = $optimized.src -}}
+  {{- $srcset = $optimized.srcset}}
+{{- end -}}
+
 {{ if .IsBlock }}
   <figure>
-    <img 
+    <img
       src="{{ $src | safeURL }}"
+      {{ if $srcset -}}
+        srcset="
+        {{ range $i, $v := $srcset -}}
+          {{ $v }}{{- if ne (add $i 1) (len $srcset) -}},{{- end }}
+        {{ end -}}"
+      {{ end -}}
       alt="{{- .Text -}}"
       loading="lazy"
       decoding="async"
-    >
+    />
     <figcaption>{{ .Title }}</figcaption>
   </figure>
-
 {{ else }}
   <img
-    src="{{ $src | safeURL }}" 
+    src="{{ $src | safeURL }}"
     alt="{{- .Text -}}"
-    {{- with .Title }} title="{{ . }}"{{ end -}}
+    {{- with .Title }}title="{{ . }}"{{ end -}}
     loading="lazy"
     decoding="async"
-  >
+  />
 {{ end }}
