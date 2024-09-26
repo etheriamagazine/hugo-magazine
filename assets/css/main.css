@@ -36,4 +36,11 @@
   .prose-intro > p:nth-of-type(2)::first-letter {
     @apply uppercase text-[5em] leading-[0.7] float-left ml-0 mr-4;
   }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance:none;
+  }  
 }

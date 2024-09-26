@@ -2,7 +2,6 @@
   <a href="{{ .RelPermalink }}">
     {{ with .Params.coverImage }}
       <img
-        loading="lazy"
         class="w-full object-cover aspect-[3/2]"
         src="{{ partial "image_cdn.html" . }}"
         alt="office laptop working"

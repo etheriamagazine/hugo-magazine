@@ -16,7 +16,7 @@
       <script src="{{ .RelPermalink }}" type="module"></script>
     {{- end }}
   {{- else }}
-    {{- $opts := dict "minify" true }}
+    {{- $opts := dict "minify" true "format" "esm" }}
     {{- with . | js.Build $opts | fingerprint }}
       <script src="{{ .RelPermalink }}" type="module" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
     {{- end }}

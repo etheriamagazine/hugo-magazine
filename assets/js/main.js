@@ -9,10 +9,19 @@
 // });
 // import { h, html, signal, render} from './preact-bundle.js'
 import { h, render, html, signal } from  '@jslibs/preact-bundle.js';
+import MiniSearch from '@jslibs/minisearch.js'
 
 import CookieBanner from './cookie-gdpr.js'
+import {Search} from './search.js'
 
 import Alpine from '@jslibs/alpinejs.js'
+
+// let miniSearch = new MiniSearch({
+//   fields: ['title', 'text'], // fields to index for full-text search
+//   storeFields: ['title', 'category'] // fields to return with search results
+// })
+
+// window.miniSearch = miniSearch;
 
 Alpine.start();
 
@@ -56,4 +65,6 @@ function App (props) {
 }
 //render(html`<${CookieBanner} name="World" />`, document.getElementById('cookie-banner'));
 
-render(html`<${App} name="World" />`, document.getElementById('react'));
+// render(html`<${App} name="World" />`, document.getElementById('react'));
+render(html`<${Search} name="World" />`, document.getElementById('react'));
+

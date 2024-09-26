@@ -1,7 +1,7 @@
 {{ $params :=  site.Params.hugoEtheria.subscribeForm }}
 
 
-<section x-data="subscribeForm({{ $params | jsonify }})" class="overflow-hidden">
+<section x-data ="subscribeForm({{ $params | jsonify     }})" class="overflow-hidden">
 
   <div class="flex transition" :style="`transform: translateX(-${(page - 1) * 100}%)`">
     <!-- form panel -->

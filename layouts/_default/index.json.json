@@ -1,0 +1,11 @@
+[
+    {{- range $i, $p := .Site.RegularPages -}}
+    {{- if gt $i 0 -}},{{- end -}}
+    {{- dict 
+        "id" $p.RelPermalink 
+        "title" $p.Title 
+        "content" ($p.Content | plainify)
+        | jsonify 
+    -}}
+    {{- end -}}
+]
