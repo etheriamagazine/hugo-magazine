@@ -1,12 +1,6 @@
-github.com/etheriamagazine/hugo-mod-jslibs/alpinejs/v3 v3.0.0-20240308174617-2184500bfeb7 h1:KdsSaXzIAllvJUeAJ307D223qd0N+SXWfy6YqlHIHfw=
-github.com/etheriamagazine/hugo-mod-jslibs/alpinejs/v3 v3.0.0-20240308174617-2184500bfeb7/go.mod h1:d5gX7ZMKDVwScvnNPJvXYMbuNBBOZEjxfUjT9r88ZGA=
 github.com/etheriamagazine/hugo-mod-jslibs/alpinejs/v3 v3.0.0-20240308175352-914922e4cc40 h1:+R6TuOfEeE5sayjXCNoz3yRb5HmAVxk/F3ynDs8yOyA=
 github.com/etheriamagazine/hugo-mod-jslibs/alpinejs/v3 v3.0.0-20240308175352-914922e4cc40/go.mod h1:d5gX7ZMKDVwScvnNPJvXYMbuNBBOZEjxfUjT9r88ZGA=
-github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle v0.0.0-20240303010014-0b0ff98043fd h1:pJkkhMbgUiDGhuUJdUmc8yGfY0GpEEVs1y5bMzJAa3c=
-github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle v0.0.0-20240303010014-0b0ff98043fd/go.mod h1:2tzKXmKmduTBP2S37x+Mis7vOB/wS7bJ2oRWag7bGNU=
-github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle v0.0.0-20240303185219-7bed176ccd00 h1:opd4su/eBsguSD3CoJ+mO3r8ugihY+XPyLqHy0+yFR4=
-github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle v0.0.0-20240303185219-7bed176ccd00/go.mod h1:2tzKXmKmduTBP2S37x+Mis7vOB/wS7bJ2oRWag7bGNU=
-github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle v0.0.0-20240308174617-2184500bfeb7 h1:5ACxYJ8WFX3g6T378Mv5XpU7zNXTZl/fWpUVjPJHucA=
-github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle v0.0.0-20240308174617-2184500bfeb7/go.mod h1:2tzKXmKmduTBP2S37x+Mis7vOB/wS7bJ2oRWag7bGNU=
+github.com/etheriamagazine/hugo-mod-jslibs/minisearch v0.0.0-20240926140054-459e31b43530 h1:ldB1XTnCePHgB2jebenJtnNQlpd1w1RDttIArB8YJ3E=
+github.com/etheriamagazine/hugo-mod-jslibs/minisearch v0.0.0-20240926140054-459e31b43530/go.mod h1:8esSFhBX4W7xjuCL7DTHR1kR7a9Y5VGbLqgy4aBcDu0=
 github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle v0.0.0-20240308175352-914922e4cc40 h1:JGiPsoY/KOkiI7S7LVoQLOQkrt5byycXPVjc4i6siNc=
 github.com/etheriamagazine/hugo-mod-jslibs/preact-bundle v0.0.0-20240308175352-914922e4cc40/go.mod h1:2tzKXmKmduTBP2S37x+Mis7vOB/wS7bJ2oRWag7bGNU=

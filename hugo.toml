@@ -4,6 +4,10 @@ languageCode = 'es-ES'
 defaultContentLanguage = "es"
 summaryLength = 20
 
+
+[outputs]
+  home = ["html", "json"]
+
 [permalinks]
 
     [permalinks.taxonomy]
@@ -25,3 +29,47 @@ summaryLength = 20
     [[module.imports]]
         path = 'github.com/etheriamagazine/hugo-mod-jslibs/minisearch'
 
+
+
+[params]
+  subtitle = "1ª revista de viajes española para mujeres que les apasiona viajar"
+
+  [params.publisher]
+    name = 'Etheria Magazine'
+    urls = [
+      "https://www.facebook.com/etheriamagazine/",
+      "https://twitter.com/etheriamagazine",
+      "https://www.instagram.com/etheriamagazine/",
+      "https://www.pinterest.es/etheriamagazine/",
+      "https://github.com/etheriamagazine"      
+    ]
+
+  [params.publi]
+    items = [
+      "publi/2023-polonia",
+      "publi/2024-biofest",
+      "publi/2022-getxo"
+    ]
+
+  [params.imgproxy]
+    enabled = true
+    host = "https://imgp.etheriamagazine.com/"
+    sourceStyle = "plain"
+    responsiveSizes = [200, 300, 600, 900, 1200] 
+    defaultSize = 600
+
+  [params.hugoEtheria]
+    [params.hugoEtheria.subscribeForm]
+      action = "/newsletter"  
+    
+
+  [params.subscribe]
+    action = "/newsletter"
+    [[params.subscribe.lists]]
+      id = "3yExM8x4"
+      label = "Newsletter"
+
+
+    [[params.subscribe.lists]]
+      id = "3yExM8x4"
+      label = "Marketing"      

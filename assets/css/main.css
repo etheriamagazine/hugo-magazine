@@ -1,8 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-orange-300: #f56642;
+  --color-blue-100: #427bf5;
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-green-800: #3f6212;
+  --color-green-900: #365314;
+  --color-green-950: #1a2e05;
+  --color-primary-50: #f0fbff;
+  --color-primary-100: #e0f6fe; 
+  --color-primary-200: #baedfd; 
+  --color-primary-300: #7ddafc; 
+  --color-primary-400: #38c8f8; 
+  --color-primary-500: #0eb6e9; 
+  --color-primary-600: #009ed0; 
+  --color-primary-700: #0377a1; 
+  --color-primary-800: #076185; 
+  --color-primary-900: #0c516e; 
+  --color-primary-950: #083449; 
+
+}
+
+body {
+  @apply antialiased;
+}
+
+
 @import './fonts.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+
+}
 
 @layer base {
   html {
@@ -26,11 +56,9 @@
   }
 }
 @layer utilities {
-  .prose-intro > p:nth-of-type(1) {
-    @apply text-primary-600 text-xl lg:text-2xl;
-  }
+
   .prose-intro > p:nth-of-type(2)::first-line { 
-    @apply uppercase text-justify;
+    @apply text-primary-600 uppercase text-justify;
   }
 
   .prose-intro > p:nth-of-type(2)::first-letter {

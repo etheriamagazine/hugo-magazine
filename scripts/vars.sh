@@ -1,0 +1,1 @@
+echo $HUGO_IMGPROXY_KEY

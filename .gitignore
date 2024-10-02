@@ -13,6 +13,12 @@ hugo.linux
 
 # hugo temp lock file
 .hugo_build.lock
+./public
 
 # npm 
 node_modules
+
+# .env file
+.env
+.env.test
+.env.local

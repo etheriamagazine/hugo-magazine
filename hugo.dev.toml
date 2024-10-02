@@ -8,5 +8,5 @@
 # mount sample content
 [module]
   [[module.mounts]]
-    source = "sample_content"
+    source = "dev_content"
     target = "content"
