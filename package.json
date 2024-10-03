@@ -1,14 +1,22 @@
 {
-  "name": "hugo-magazine",  
   "author": "germanftorres",
+  "comments": {
+    "dependencies": {},
+    "devDependencies": {
+      "@tailwindcss/cli": "project",
+      "@tailwindcss/typography": "project",
+      "tailwindcss": "project"
+    }
+  },
   "dependencies": {},
   "description": "Hugo module that implements etheriamagazine.com theme.",
   "devDependencies": {
+    "@tailwindcss/cli": "4.0.0-alpha.24",
     "@tailwindcss/typography": "^0.5.15",
-    "@tailwindcss/cli": "4.0.0-alpha.24",    
     "tailwindcss": "4.0.0-alpha.24"
   },
   "license": "ISC",
+  "name": "hugo-magazine",
   "scripts": {
     "build": "./node_modules/tailwindcss/lib/cli.js -i ./assets/css/main.css -o ./assets/css/style.css",
     "watch": "./node_modules/tailwindcss/lib/cli.js -i ./assets/css/main.css -o ./assets/css/style.css -w"
